@@ -40,10 +40,10 @@ export default defineConfig((conf: ConfigEnv) => {
 
     css: {
       // postcss: resolve('/build/postcss.config.cjs'),
-      modules: {
-        scopeBehaviour: 'local',
-        localsConvention: 'camelCaseOnly'
-      },
+      // modules: {
+      //   scopeBehaviour: 'local',
+      //   localsConvention: 'camelCaseOnly'
+      // },
       preprocessorOptions: {
         less: {
           modifyVars: {
@@ -55,7 +55,7 @@ export default defineConfig((conf: ConfigEnv) => {
     },
 
     plugins: createVitePlugins(mode, viteEnv),
-
+    
     build: (mode === 'production' && {
       target: viteEnv.VITE_BUILD_TARGET || 'es2015',
       sourcemap: viteEnv.VITE_BUILD_SOURCE_MAP || false,
