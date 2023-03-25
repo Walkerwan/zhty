@@ -13,7 +13,6 @@ import type { Mode } from './type/vite';
 import type { ConfigEnv } from 'vite';
 
 export default defineConfig((conf: ConfigEnv) => {
-  debugger;
   const mode = conf.mode as Mode;
 
   // 设置版本号
@@ -40,15 +39,15 @@ export default defineConfig((conf: ConfigEnv) => {
     },
 
     css: {
-      // postcss: resolve('/build/postcss.config.js'),
-      // modules: {
-      //   scopeBehaviour: 'local',
-      //   localsConvention: 'camelCaseOnly'
-      // },
+      // postcss: resolve('/build/postcss.config.cjs'),
+      modules: {
+        scopeBehaviour: 'local',
+        localsConvention: 'camelCaseOnly'
+      },
       preprocessorOptions: {
         less: {
           modifyVars: {
-            // hack: [`true; @import (reference) "${resolve('src/style/theme/default.less')}";`]
+            hack: [`true; @import (reference) "${resolve('src/style/theme/default.less')}";`]
           },
           javascriptEnabled: true
         }
