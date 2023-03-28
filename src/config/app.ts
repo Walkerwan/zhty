@@ -1,11 +1,8 @@
-{
+export const appConfig = {
   "name": "VUE-TEMPLATE",
   "version": "1.0.0",
-  "assetURL": "https://static.mwjz.live/",
-  "logo": "https://static.mwjz.live/image/logo/logo.png",
   "baseURL": {
     "api": "/api",
     "upload": "/upload"
   }
-
 }

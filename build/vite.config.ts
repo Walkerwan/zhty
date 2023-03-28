@@ -39,11 +39,11 @@ export default defineConfig((conf: ConfigEnv) => {
     },
 
     css: {
-      // postcss: resolve('/build/postcss.config.cjs'),
-      // modules: {
-      //   scopeBehaviour: 'local',
-      //   localsConvention: 'camelCaseOnly'
-      // },
+      postcss: resolve('/build/postcss.config.cjs'),
+      modules: {
+        scopeBehaviour: 'local',
+        localsConvention: 'camelCaseOnly'
+      },
       preprocessorOptions: {
         less: {
           modifyVars: {

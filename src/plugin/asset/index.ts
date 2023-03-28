@@ -1,4 +1,4 @@
-// import 'uno.css';
+import 'uno.css';
 import '@/style/index.less';
 import type { App } from 'vue';
 

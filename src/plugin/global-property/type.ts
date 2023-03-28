@@ -22,15 +22,15 @@ export interface AppProps {
   /**
    * 日期格式化
    */
-  readonly dateFormat: (date: number | Date, template?: string) => string
+  // readonly dateFormat: (date: number | Date, template?: string) => string
 
-  /**
-   * 静态地址解析
-   */
-  readonly assetResolve: (path: string) => string
+  // /**
+  //  * 静态地址解析
+  //  */
+  // readonly assetResolve: (path: string) => string
 
-  /**
-   * 图片地址解析
-   */
-  readonly imageResolve: (path: string) => string
+  // /**
+  //  * 图片地址解析
+  //  */
+  // readonly imageResolve: (path: string) => string
 }

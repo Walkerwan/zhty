@@ -1,20 +1,18 @@
-
-/****   request.js   ****/
-// 导入axios
-import axios from 'axios'
+import type { AxiosInterceptorManager, InternalAxiosRequestConfig,  AxiosResponse} from 'axios';
 // 使用element-ui Message做消息提醒
-// import { Message} from 'element-ui';
-//1. 创建新的axios实例，
-const service = axios.create({
-  // 公共接口--这里注意后面会讲
-  baseURL: process.env.BASE_API,
-  // 超时时间 单位是ms，这里设置了3s的超时时间
-  timeout: 3 * 1000
-})
-// 2.请求拦截器
-service.interceptors.request.use(config => {
+import { ElMessage } from 'element-plus';
+
+interface InterceptorManager { 
+  request: AxiosInterceptorManager<InternalAxiosRequestConfig>;
+  response: AxiosInterceptorManager<AxiosResponse>;
+}
+
+export function setupInterceptor(manager: InterceptorManager): void {
+  // 1.请求拦截器
+manager.request.use(config => {
   //发请求前做的一些处理，数据转化，配置请求头，设置token,设置loading等，根据需求去添加
   config.data = JSON.stringify(config.data); //数据转化,也可以使用qs转换
+  // @ts-ignore
   config.headers = {
     'Content-Type':'application/json' //配置请求头
   }
@@ -29,8 +27,8 @@ service.interceptors.request.use(config => {
   Promise.reject(error)
 })
  
-// 3.响应拦截器
-service.interceptors.response.use(response => {
+// 2.响应拦截器
+manager.response.use(response => {
   //接收到响应数据并成功后的一些共有的处理，关闭loading等
  
   return response
@@ -83,15 +81,14 @@ service.interceptors.response.use(response => {
   } else {
     // 超时处理
     if (JSON.stringify(error).includes('timeout')) {
-      // Message.error('服务器响应超时，请刷新当前页')
+      ElMessage.error('服务器响应超时，请刷新当前页')
     }
     error.message = '连接服务器失败'
   }
  
-  // Message.error(error.message)
+  ElMessage.error(error.message)
   /***** 处理结束 *****/
   //如果不需要错误处理，以上的处理过程都可省略
   return Promise.resolve(error.response)
 })
-//4.导入文件
-export default service
+}

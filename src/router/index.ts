@@ -1,5 +1,6 @@
 import type { App, Plugin } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import { setupRouterGuard } from './guard';
 
 import routes from '~pages';
 
@@ -21,8 +22,6 @@ const RPlugin: Plugin = {
 export default RPlugin;
 
 function create() {
-  debugger
-  console.log('sdad', routes)
   const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: routes.concat([{ path: '/', redirect: 'home' }]),
@@ -30,7 +29,7 @@ function create() {
     scrollBehavior: () => ({ left: 0, top: 0 })
   });
 
-  // setupRouterGuard(router);
+  setupRouterGuard(router);
 
   return router;
 }
