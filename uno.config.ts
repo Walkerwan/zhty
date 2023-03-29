@@ -28,10 +28,14 @@ export default defineConfig({
 
   presets: [
     presetUno(),
-    presetAttributify({ prefix: 'c-', prefixedOnly: false }),
+    presetAttributify(),
     presetIcons(),
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     presetTheme({ theme, prefix: '--style-theme' })
+  ],
+  rules: [
+    // [/^w-(\d+)$/, ([, d]) => ({ width: `${Number(d)}px` })],
+    [/^text-fs-(\d+)$/, ([, d]) => ({ 'font-size': `${Number(d)}px`, 'line-height':  `${Number(d)}px`, height: `${Number(d)}px`})]
   ],
 
   theme: {

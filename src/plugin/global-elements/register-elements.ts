@@ -4,11 +4,13 @@ import "element-plus/theme-chalk/display.css";
 
 // element-plus组件注册
 import {
+  ElConfigProvider,
   ElMenu,
   ElMenuItem,
 } from "element-plus";
 
 const component = [
+  ElConfigProvider,
   ElMenu,
   ElMenuItem,
 ];

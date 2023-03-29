@@ -10,9 +10,10 @@ export function chunkFileNames(_chunkInfo: PreRenderedChunk) {
 
 export function assetFileNames(chunkInfo?: PreRenderedAsset): string {
   const extFileDirMap: Record<string, string> = {
-    'png,gif,jpg,jpeg,svg': 'asset/image'
+    'png,gif,jpg,jpeg,svg': 'assets/images'
   };
 
+  // @ts-ignore
   const ext = chunkInfo?.name.match(/\.(\w+)$/)?.[1] || 'js';
 
   const dir = Object.keys(extFileDirMap)
