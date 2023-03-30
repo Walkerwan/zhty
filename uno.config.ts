@@ -28,14 +28,15 @@ export default defineConfig({
 
   presets: [
     presetUno(),
-    presetAttributify(),
+    presetAttributify({ prefix: 'c-', prefixedOnly: false }),
     presetIcons(),
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     presetTheme({ theme, prefix: '--style-theme' })
   ],
   rules: [
-    // [/^w-(\d+)$/, ([, d]) => ({ width: `${Number(d)}px` })],
-    [/^text-fs-(\d+)$/, ([, d]) => ({ 'font-size': `${Number(d)}px`, 'line-height':  `${Number(d)}px`, height: `${Number(d)}px`})]
+    [/^text-fs-(\d+\.{0,1}\d{0,2})$/, ([, d]) => ({ "font-size": `${d}px` })],
+    [/^leh-(\d+\.{0,1}\d{0,2})$/, ([, d]) => ({ "line-height": `${d}px` })],
+    // [/^m-?([rltbse])(?:-?(-?.+))?$/, ([, d]) => ({ "line-height": `${d}` })],
   ],
 
   theme: {

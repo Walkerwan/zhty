@@ -7,12 +7,14 @@ import {
   ElConfigProvider,
   ElMenu,
   ElMenuItem,
+  ElSubMenu,
 } from "element-plus";
 
 const component = [
   ElConfigProvider,
   ElMenu,
   ElMenuItem,
+  ElSubMenu,
 ];
 
 // elment-plus-icons注册

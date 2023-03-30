@@ -49,16 +49,5 @@
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-pages": "^0.29.0",
     "vue-tsc": "^1.0.24"
-  },
-  "prettier": "./standard/.prettierrc.js",
-  "eslintConfig": {
-    "extends": "./standard/.eslintrc.js"
-  },
-  "stylelint": {
-    "extends": "./standard/.stylelintrc.js"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,vue}": "npm run lint:js",
-    "*.{css,less,vue}": "npm run lint:style"
   }
 }

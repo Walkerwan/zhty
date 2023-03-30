@@ -62,6 +62,7 @@ export default defineConfig((conf: ConfigEnv) => {
       minify: viteEnv.VITE_BUILD_MINIFY || true,
       outDir: viteEnv.VITE_BUILD_OUTPUT_DIR,
       assetsDir: viteEnv.VITE_BUILD_ASSETS_DIR || 'assets',
+      // cssCodeSplit: true,
       terserOptions: (viteEnv.VITE_BUILD_MINIFY === 'terser' && {
         compress: {
           keep_infinity: true,
