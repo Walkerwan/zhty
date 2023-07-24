@@ -6,6 +6,6 @@ import type { Router } from 'vue-router';
  */
 export function createAuthGuard(router: Router): void {
   router.beforeEach((to, _, next) => {
-    to?.meta?.auth || next();
+    next();
   });
 }

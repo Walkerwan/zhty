@@ -10,7 +10,9 @@
       <div class="w-250px" c-bg="#f4f5f7">
         <LeftMenu></LeftMenu>
       </div>
-      <div class="w-full" c-bg="yellow"></div>
+      <div class="w-full" c-bg="yellow">
+        <router-view></router-view>
+      </div>
     </section>
   </main>
 </template>
@@ -29,3 +31,10 @@ export default defineComponent({
   }
 })
 </script>
+
+<route lang="yaml">
+  redirect:
+  name: home-home
+  meta:
+    auth: true
+  </route>

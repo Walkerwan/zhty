@@ -1,6 +1,6 @@
 <template>
   <!-- 没有子节点，使用el-menu-item 渲染 -->
-  <el-menu-item v-if="menuOption?.children || !menuOption?.children?.length" :index="menuOption?.id"
+  <el-menu-item v-if="!menuOption?.children || !menuOption?.children?.length" :index="menuOption?.id"
     @click="skipToRouter(menuOption)">
     <div v-if="menuOption?.menuIcon"></div>
     <div v-else></div>
@@ -22,6 +22,7 @@ import { useRouter } from 'vue-router';
 import { MenuType } from '../menuType';
 
 export default defineComponent({
+
   name: 'MenuItem',
   props: {
     menuOption: {
